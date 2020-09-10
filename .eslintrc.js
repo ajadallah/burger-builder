@@ -23,6 +23,7 @@ module.exports = {
   "rules": {
     "react/jsx-filename-extension": 0,
     "function-paren-newline": 0,
-    "no-shadow": 0
+    "no-shadow": 0,
+    "import/no-unresolved": 0
   }
 };
