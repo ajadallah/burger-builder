@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import classes from './BuildControls.module.css';
+import classes from './BuildControl.module.css';
 
 export default function BuildControl(props) {
   const { label } = props;
@@ -15,5 +15,5 @@ export default function BuildControl(props) {
   );
 }
 BuildControl.propTypes = {
-  label: PropTypes.objectOf.isRequired,
+  label: PropTypes.string.isRequired,
 };

@@ -28,5 +28,5 @@ const burger = (props) => {
 export default burger;
 
 burger.propTypes = {
-  ingredients: PropTypes.func.isRequired,
+  ingredients: PropTypes.object.isRequired,
 };
