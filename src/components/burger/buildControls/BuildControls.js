@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import classes from './BuildControls.module.css';
 import BuildControl from './buildControl/BuildControl';
 
@@ -13,8 +14,16 @@ export default function BuildControls(props) {
   return (
     <div className={classes.BuildControls}>
       {controls.map((ctrl) => (
-        <BuildControl key={ctrl.label} label={ctrl.label} />
+        <BuildControl
+          key={ctrl.label}
+          label={ctrl.label}
+          added={() => props.ingredientAdded(ctrl.type)}
+        />
       ))}
     </div>
   );
 }
+
+BuildControls.propTypes = {
+  ingredientAdded: PropTypes.func.isRequired,
+};
