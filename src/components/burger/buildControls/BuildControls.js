@@ -18,6 +18,8 @@ export default function BuildControls(props) {
           key={ctrl.label}
           label={ctrl.label}
           added={() => props.ingredientAdded(ctrl.type)}
+          removed={() => props.ingredientRemoved(ctrl.type)}
+          disabled={props.disabled[ctrl.type]}
         />
       ))}
     </div>
@@ -26,4 +28,5 @@ export default function BuildControls(props) {
 
 BuildControls.propTypes = {
   ingredientAdded: PropTypes.func.isRequired,
+  ingredientRemoved: PropTypes.func.isRequired,
 };
