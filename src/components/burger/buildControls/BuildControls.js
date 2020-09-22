@@ -11,8 +11,16 @@ const controls = [
   { label: 'Meat', type: 'meat' },
 ];
 export default function BuildControls(props) {
+  const { price } = props;
   return (
     <div className={classes.BuildControls}>
+      <p>
+        <strong>
+          Current Price:
+          {' '}
+          {price.toFixed(2)}
+        </strong>
+      </p>
       {controls.map((ctrl) => (
         <BuildControl
           key={ctrl.label}
@@ -29,4 +37,6 @@ export default function BuildControls(props) {
 BuildControls.propTypes = {
   ingredientAdded: PropTypes.func.isRequired,
   ingredientRemoved: PropTypes.func.isRequired,
+  disabled: PropTypes.object.isRequired,
+  price: PropTypes.number.isRequired,
 };
