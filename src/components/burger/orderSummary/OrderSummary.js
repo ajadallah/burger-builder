@@ -4,7 +4,9 @@ import Auxiliary from '../../../hoc/Auxiliary';
 import Button from '../../ui/button/Button';
 
 function OrderSummary(props) {
-  const { ingredients, purchaseCanceled, purchaseContinued } = props;
+  const {
+    ingredients, purchaseCanceled, purchaseContinued, price,
+  } = props;
   const ingredientSummary = Object.keys(ingredients)
     .map((igKey) => (
       <li key={igKey}>
@@ -24,6 +26,13 @@ function OrderSummary(props) {
       <ul>
         {ingredientSummary}
       </ul>
+      <p>
+        <strong>
+          Total Price:
+          {' '}
+          {price.toFixed(2)}
+        </strong>
+      </p>
       <p>Continue to Checkout?</p>
       <Button btnType="Danger" clicked={purchaseCanceled}>CANCEL</Button>
       <Button btnType="Success" clicked={purchaseContinued}>CONTINUE</Button>
@@ -35,6 +44,7 @@ OrderSummary.propTypes = {
   ingredients: PropTypes.object.isRequired,
   purchaseCanceled: PropTypes.func.isRequired,
   purchaseContinued: PropTypes.func.isRequired,
+  price: PropTypes.number.isRequired,
 };
 
 export default OrderSummary;
