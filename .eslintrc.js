@@ -29,5 +29,6 @@ module.exports = {
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0,
     "jsx-a11y/aria-role": 0,
+    "react/prefer-stateless-function": 0,
   }
 };
