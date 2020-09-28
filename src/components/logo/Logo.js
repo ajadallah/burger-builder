@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import burgerLogo from '../../assets/images/burger-logo.png';
 import classes from './Logo.module.css';
 
-function Logo(props) {
+function logo(props) {
   return (
     <div className={classes.Logo}>
       <img src={burgerLogo} alt="MyBurger" />
@@ -11,8 +11,8 @@ function Logo(props) {
   );
 }
 
-Logo.propTypes = {
+logo.propTypes = {
 
 };
 
-export default Logo;
+export default logo;
