@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Auxiliary from '../../../hoc/Auxiliary';
+import Auxiliary from '../../../hoc/auxiliary/Auxiliary';
 import Button from '../../ui/button/Button';
 
 class OrderSummary extends Component {
