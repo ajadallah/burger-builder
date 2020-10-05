@@ -31,9 +31,15 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-  children: PropTypes.object.isRequired,
-  show: PropTypes.bool.isRequired,
-  modalClosed: PropTypes.func.isRequired,
+  children: PropTypes.object,
+  show: PropTypes.bool,
+  modalClosed: PropTypes.func,
+};
+
+Modal.defaultProps = {
+  children: {},
+  show: false,
+  modalClosed: () => { },
 };
 
 export default Modal;
