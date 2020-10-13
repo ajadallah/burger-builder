@@ -31,5 +31,6 @@ module.exports = {
     "jsx-a11y/aria-role": 0,
     "react/prefer-stateless-function": 0,
     "no-restricted-syntax": 0,
+    "react/jsx-props-no-spreading": 0,
   }
 };
