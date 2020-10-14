@@ -16,6 +16,15 @@ const Input = (props) => {
     case ('textarea'):
       inputElement = <textarea className={classes.inputElement} {...elementConfig} />;
       break;
+    case ('select'):
+      inputElement = (
+        <select className={classes.inputElement} value={value}>
+          {elementConfig.options.map((option) => (
+            <option key={Math.random()} value={option.value}>{option.displayValue}</option>
+          ))}
+        </select>
+      );
+      break;
     default:
       inputElement = <input className={classes.inputElement} {...elementConfig} />;
   }
