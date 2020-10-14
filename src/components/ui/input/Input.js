@@ -4,18 +4,20 @@ import PropTypes from 'prop-types';
 import classes from './Input.module.css';
 
 const Input = (props) => {
-  const { label, inputtype } = props;
+  const {
+    label, elementType, elementConfig, value,
+  } = props;
   let inputElement = null;
 
-  switch (inputtype) {
+  switch (elementType) {
     case ('input'):
-      inputElement = <input className={classes.inputElement} {...props} />;
+      inputElement = <input className={classes.inputElement} {...elementConfig} value={value} />;
       break;
     case ('textarea'):
-      inputElement = <textarea className={classes.inputElement} {...props} />;
+      inputElement = <textarea className={classes.inputElement} {...elementConfig} />;
       break;
     default:
-      inputElement = <input className={classes.inputElement} {...props} />;
+      inputElement = <input className={classes.inputElement} {...elementConfig} />;
   }
 
   return (
@@ -28,7 +30,9 @@ const Input = (props) => {
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
-  inputtype: PropTypes.string.isRequired,
+  elementType: PropTypes.string.isRequired,
+  elementConfig: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default Input;

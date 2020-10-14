@@ -8,11 +8,57 @@ import Input from '../../../components/ui/input/Input'
 
 export default class ContactData extends Component {
   state = {
-    name: '',
-    email: '',
-    address: {
-      street: '',
-      postalCode: ''
+    orderForm: {
+      name: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Your Name'
+        },
+        value: ''
+      },
+      street: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Street'
+        },
+        value: ''
+      },
+      zipCode: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Zip Code'
+        },
+        value: ''
+      },
+      country: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Country'
+        },
+        value: ''
+      },
+      email: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'email',
+          placeholder: 'Your Email'
+        },
+        value: ''
+      },
+      deliveryMethod: {
+        elementType: 'select',
+        elementConfig: {
+          options: [
+            { value: 'fastest', displayValue: 'Fastest' },
+            { value: 'cheapest', displayValue: 'Cheapest' }
+          ]
+        },
+        value: ''
+      },
     },
     loading: false
   }
@@ -23,17 +69,8 @@ export default class ContactData extends Component {
     const order = {
       ingredients: this.props.ingredients,
       price: this.props.price,
-      customer: {
-        name: 'Aref',
-        address: {
-          street: 'Test Street',
-          zipCode: '12345',
-          country: 'Tanzania'
-        },
-        email: 'test@test.com'
-      },
-      deliveryMethod: 'fastest'
     }
+
     axios.post('/orders.json', order)
       .then(response => {
         this.setState({ loading: false });
@@ -47,7 +84,7 @@ export default class ContactData extends Component {
   render() {
     const { loading } = this.state;
     let form = (<form>
-      <Input inputtype='input' type='text' name='name' placeholder='Your Name' />
+      <Input elementType='' elementConfig='' value='' />
       <Input inputtype='input' type='email' name='email' placeholder='Your Email' />
       <Input inputtype='input' type='text' name='street' placeholder='Your Street' />
       <Input inputtype='input' type='text' name='postal' placeholder='Postal Code' />
