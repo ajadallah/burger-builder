@@ -31,7 +31,7 @@ const Input = (props) => {
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   elementType: PropTypes.string.isRequired,
-  elementConfig: PropTypes.string.isRequired,
+  elementConfig: PropTypes.object.isRequired,
   value: PropTypes.string.isRequired,
 };
 
