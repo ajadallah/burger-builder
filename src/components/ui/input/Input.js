@@ -5,12 +5,12 @@ import classes from './Input.module.css';
 
 const Input = (props) => {
   const {
-    label, elementType, elementConfig, value, changed, invalid, shouldValidate,
+    label, elementType, elementConfig, value, changed, invalid, shouldValidate, touched,
   } = props;
   let inputElement = null;
   const inputClasses = [classes.inputElement];
 
-  if (invalid && shouldValidate) {
+  if (invalid && shouldValidate && touched) {
     inputClasses.push(classes.Invalid);
   }
 
@@ -50,6 +50,7 @@ Input.propTypes = {
   changed: PropTypes.func.isRequired,
   invalid: PropTypes.bool.isRequired,
   shouldValidate: PropTypes.bool.isRequired,
+  touched: PropTypes.bool.isRequired,
 };
 
 export default Input;
