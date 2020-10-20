@@ -13,7 +13,7 @@ export default class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'Your Name'
+          placeholder: 'Name'
         },
         value: '',
         validation: {
@@ -67,7 +67,7 @@ export default class ContactData extends Component {
         elementType: 'input',
         elementConfig: {
           type: 'email',
-          placeholder: 'Your Email'
+          placeholder: 'Email'
         },
         value: '',
         validation: {
@@ -169,6 +169,7 @@ export default class ContactData extends Component {
             shouldValidate={formElement.config.validation}
             value={formElement.config.value}
             touched={formElement.config.touched}
+            valueType={formElement.config.elementConfig.placeholder}
             changed={(event) => this.inputChangedHandler(event, formElement.id)}
           />
         ))}

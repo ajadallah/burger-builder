@@ -5,7 +5,7 @@ import classes from './Input.module.css';
 
 const Input = (props) => {
   const {
-    label, elementType, elementConfig, value, changed, invalid, shouldValidate, touched,
+    label, elementType, elementConfig, value, changed, invalid, shouldValidate, touched, valueType,
   } = props;
   let inputElement = null;
   const inputClasses = [classes.inputElement];
@@ -34,10 +34,23 @@ const Input = (props) => {
       inputElement = <input className={inputClasses.join(' ')} {...elementConfig} onChange={changed} />;
   }
 
+  let validationError = null;
+  if (invalid && touched) {
+    validationError = (
+      <p className={classes.ValidationError}>
+        Please enter a valid
+        {' '}
+        {valueType}
+        !
+      </p>
+    );
+  }
+
   return (
     <div className={classes.Input}>
       <label htmlFor="inputLabel" className={classes.Label}>{label}</label>
       {inputElement}
+      {validationError}
     </div>
   );
 };
@@ -51,6 +64,7 @@ Input.propTypes = {
   invalid: PropTypes.bool.isRequired,
   shouldValidate: PropTypes.bool.isRequired,
   touched: PropTypes.bool.isRequired,
+  valueType: PropTypes.string.isRequired,
 };
 
 export default Input;
