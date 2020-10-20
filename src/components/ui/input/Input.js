@@ -5,20 +5,25 @@ import classes from './Input.module.css';
 
 const Input = (props) => {
   const {
-    label, elementType, elementConfig, value, changed,
+    label, elementType, elementConfig, value, changed, invalid, shouldValidate,
   } = props;
   let inputElement = null;
+  const inputClasses = [classes.inputElement];
+
+  if (invalid && shouldValidate) {
+    inputClasses.push(classes.Invalid);
+  }
 
   switch (elementType) {
     case ('input'):
-      inputElement = <input className={classes.inputElement} {...elementConfig} value={value} onChange={changed} />;
+      inputElement = <input className={inputClasses.join(' ')} {...elementConfig} value={value} onChange={changed} />;
       break;
     case ('textarea'):
-      inputElement = <textarea className={classes.inputElement} {...elementConfig} onChange={changed} />;
+      inputElement = <textarea className={inputClasses.join(' ')} {...elementConfig} onChange={changed} />;
       break;
     case ('select'):
       inputElement = (
-        <select className={classes.inputElement} value={value} onChange={changed}>
+        <select className={inputClasses.join(' ')} value={value} onChange={changed}>
           {elementConfig.options.map((option) => (
             <option key={Math.random()} value={option.value}>{option.displayValue}</option>
           ))}
@@ -26,7 +31,7 @@ const Input = (props) => {
       );
       break;
     default:
-      inputElement = <input className={classes.inputElement} {...elementConfig} onChange={changed} />;
+      inputElement = <input className={inputClasses.join(' ')} {...elementConfig} onChange={changed} />;
   }
 
   return (
@@ -43,6 +48,8 @@ Input.propTypes = {
   elementConfig: PropTypes.object.isRequired,
   value: PropTypes.string.isRequired,
   changed: PropTypes.func.isRequired,
+  invalid: PropTypes.bool.isRequired,
+  shouldValidate: PropTypes.bool.isRequired,
 };
 
 export default Input;
