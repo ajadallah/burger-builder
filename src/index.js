@@ -7,10 +7,10 @@ import { createStore } from 'redux';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from './store/reducers/burgerBuilder';
+import burgerBuilderReducer from './store/reducers/burgerBuilder';
 
 /* eslint-disable no-underscore-dangle */
-const store = createStore(reducer,
+const store = createStore(burgerBuilderReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 /* eslint-enable */
 
